@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.site_title = "Учёт компьютеров"
+
 urlpatterns = [
-    path('', include('uchet.urls')),
-    path('admin/', admin.site.urls),
+    path('kek/', include('uchet.urls')),
+    path('', admin.site.urls),
 ]
