@@ -8,7 +8,7 @@ class Computer(models.Model):
     manufacturer = models.CharField(max_length=20, default="",verbose_name="Производитель") 
     owner = models.CharField(max_length=20, default="",verbose_name="Материально ответственный")
     last_service_date = models.DateTimeField(verbose_name="Дата последней проверки")
-    status = models.BooleanField(default=True, verbose_name="Иправность") 
+    status = models.BooleanField(default=True, verbose_name="Исправность") 
 
     def __str__(self):
         return "%s %s %s" % (self.manufacturer, self.owner, self.inventory_number)
