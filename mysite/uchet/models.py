@@ -4,14 +4,14 @@ from django.db import models
 
 
 class Computer(models.Model):
-    inventory_number = models.CharField(max_length=20, default="",verbose_name="Инвентарный номер")
+    inventory_number = models.CharField(max_length=20, default="",verbose_name="Инвентарный номер", unique=True)
     manufacturer = models.CharField(max_length=20, default="",verbose_name="Производитель") 
     owner = models.CharField(max_length=20, default="",verbose_name="Материально ответственный")
     last_service_date = models.DateTimeField(verbose_name="Дата последней проверки")
     status = models.BooleanField(default=True, verbose_name="Исправность") 
 
     def __str__(self):
-        return "%s %s %s" % (self.manufacturer, self.owner, self.inventory_number)
+        return "Инв. № %s %s %s" % (self.inventory_number, self.manufacturer, self.owner)
 
     class Meta:
         verbose_name = "Компьютер"
@@ -19,7 +19,7 @@ class Computer(models.Model):
         
 
 class RAM(models.Model):
-    sn =  models.CharField(max_length=20, default="", verbose_name="Серийный номер")
+    sn =  models.CharField(max_length=20, default="", verbose_name="Серийный номер", unique=True)
     manufacturer = models.CharField(max_length=20, default="", verbose_name="Производитель") 
     physical_size = models.CharField(max_length=8, verbose_name="Фромфактор") 
     amount = models.IntegerField(default=0, verbose_name="Размер (Гб)")        
@@ -36,7 +36,7 @@ class RAM(models.Model):
         verbose_name_plural = "Оперативная память"
 
 class CPU(models.Model):
-    sn =  models.CharField(max_length=20, default="", verbose_name="Серийный номер")
+    sn =  models.CharField(max_length=20, default="", verbose_name="Серийный номер", unique=True)
     manufacturer = models.CharField(max_length=20, default="", verbose_name="Производитель")
     socket = models.CharField(max_length=8, verbose_name="Сокет") 
     freequency = models.IntegerField(default=0, verbose_name="Частота")
@@ -52,11 +52,12 @@ class CPU(models.Model):
         verbose_name_plural = "Процессоры"
 
 class HDD(models.Model):
-    sn =  models.CharField(max_length=20, default="", verbose_name="Серийный номер")
+    sn =  models.CharField(max_length=20, default="", verbose_name="Серийный номер", unique=True)
     manufacturer = models.CharField(max_length=20, default="",verbose_name="Производитель") 
     hdd_type = models.CharField(max_length=6, verbose_name="Фромфактор") 
     capacity = models.IntegerField(default=0, verbose_name="Объём (Гб)")
     speed = models.IntegerField(default=0, verbose_name="Скорость")
+    sdd = models.BooleanField(default=False, verbose_name="SSD?")
     status = models.BooleanField(default=True, verbose_name="Иправность")
     computer = models.ForeignKey(Computer, on_delete=models.CASCADE, verbose_name="Компьютер")
 
