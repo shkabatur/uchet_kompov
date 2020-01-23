@@ -7,6 +7,7 @@ class Computer(models.Model):
     inventory_number = models.CharField(max_length=20, default="",verbose_name="Инвентарный номер", unique=True)
     manufacturer = models.CharField(max_length=20, default="",verbose_name="Производитель") 
     owner = models.CharField(max_length=20, default="",verbose_name="Материально ответственный")
+    computer_name = models.CharField(max_length=20, default="",verbose_name="Имя компьютера")
     last_service_date = models.DateTimeField(verbose_name="Дата последней проверки")
     status = models.BooleanField(default=True, verbose_name="Исправность") 
 
