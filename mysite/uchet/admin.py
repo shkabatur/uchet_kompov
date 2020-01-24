@@ -17,10 +17,8 @@ class hddInline(admin.TabularInline):
 @admin.register(Computer)
 class ComputerAdmin(admin.ModelAdmin):
     inlines = [cpuInline, ramInline, hddInline]
-    list_display = ('inventory_number', 'manufacturer',
-    'owner', 'status', 'last_service_date')
-    list_filter = ('manufacturer',
-    'owner', 'status', 'last_service_date', 'cpu', 'hdd', 'ram')
+    list_display = ('inventory_number', 'manufacturer', 'owner', 'status', 'last_service_date')
+    list_filter = ('manufacturer', 'owner', 'status', 'last_service_date', 'cpu', 'hdd', 'ram')
     search_fields = ('owner', 'manufacturer','inventory_number' )
 
 #admin.site.register(RAM)
