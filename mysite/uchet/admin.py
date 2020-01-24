@@ -21,6 +21,7 @@ class ComputerAdmin(admin.ModelAdmin):
     'owner', 'status', 'last_service_date')
     list_filter = ('inventory_number', 'manufacturer',
     'owner', 'status', 'last_service_date', 'hdd', 'ram')
+    search_fields = ('owner', 'manufacturer','inventory_number' )
 
 #admin.site.register(RAM)
 #admin.site.register(HDD)
