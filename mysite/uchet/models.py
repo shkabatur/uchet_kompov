@@ -6,10 +6,10 @@ from django.db import models
 class Computer(models.Model):
     inventory_number = models.CharField(max_length=20, default="",verbose_name="Инвентарный номер", unique=True)
     manufacturer = models.CharField(max_length=20, default="",verbose_name="Производитель") 
-    owner = models.CharField(max_length=20, default="",verbose_name="Материально ответственный")
-    computer_name = models.CharField(max_length=20, default="",verbose_name="Имя компьютера")
+    owner = models.CharField(max_length=40, default="",verbose_name="Материально ответственный")
+    computer_name = models.CharField(max_length=20, default="",verbose_name="Имя компьютера", blank=True)
     last_service_date = models.DateTimeField(verbose_name="Дата последней проверки")
-    comment = models.TextField(verbose_name="Комментарий", default="")
+    comment = models.TextField(verbose_name="Комментарий", default="",blank=True)
     status = models.BooleanField(default=True, verbose_name="Исправность") 
 
     def __str__(self):
