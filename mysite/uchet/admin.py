@@ -4,23 +4,23 @@ from .models import Computer, CPU, RAM, HDD
 
 class cpuInline(admin.TabularInline):
     model = CPU
-    extra = 1
+    extra = 0
 
 class ramInline(admin.TabularInline):
     model = RAM
-    extra = 1
+    extra = 0
 
 class hddInline(admin.TabularInline):
     model = HDD
-    extra = 1
+    extra = 0
 
 @admin.register(Computer)
 class ComputerAdmin(admin.ModelAdmin):
     inlines = [cpuInline, ramInline, hddInline]
     list_display = ('inventory_number', 'manufacturer',
     'owner', 'status', 'last_service_date')
-    list_filter = ('inventory_number', 'manufacturer',
-    'owner', 'status', 'last_service_date', 'hdd', 'ram')
+    list_filter = ('manufacturer',
+    'owner', 'status', 'last_service_date', 'cpu', 'hdd', 'ram')
     search_fields = ('owner', 'manufacturer','inventory_number' )
 
 #admin.site.register(RAM)

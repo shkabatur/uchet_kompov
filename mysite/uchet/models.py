@@ -9,6 +9,7 @@ class Computer(models.Model):
     owner = models.CharField(max_length=20, default="",verbose_name="Материально ответственный")
     computer_name = models.CharField(max_length=20, default="",verbose_name="Имя компьютера")
     last_service_date = models.DateTimeField(verbose_name="Дата последней проверки")
+    comment = models.TextField(verbose_name="Комментарий", default="")
     status = models.BooleanField(default=True, verbose_name="Исправность") 
 
     def __str__(self):
