@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Computer, CPU, RAM, HDD
+from .models import Computer, CPU, RAM, HDD, Printer
 # Register your models here.
 
 class cpuInline(admin.TabularInline):
@@ -21,6 +21,9 @@ class ComputerAdmin(admin.ModelAdmin):
     list_filter = ('last_service_date',)
     search_fields = ('owner', 'manufacturer','inventory_number')
 
-#admin.site.register(RAM)
-#admin.site.register(HDD)
-#admin.site.register(CPU)
+@admin.register(Printer)
+class PrinterAdmin(admin.ModelAdmin):
+    list_display = ('inventory_number','serial_number', 'manufacturer', 'owner', 'status', 'last_service_date')
+    list_filter = ('last_service_date',)
+    search_fields = ('owner', 'manufacturer','inventory_number','serial_number')
+
