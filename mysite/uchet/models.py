@@ -16,7 +16,7 @@ class Printer(models.Model):
 
     class Meta:
         verbose_name = "Принтер"
-        verbose_name_plural = "Принтера"
+        verbose_name_plural = "Принтеры"
         
 
 class Computer(models.Model):
