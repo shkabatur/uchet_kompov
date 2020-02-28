@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Printer(models.Model):
     inventory_number = models.CharField(max_length=20, default="",verbose_name="Инвентарный номер", unique=True)
-    serial_number = models.CharField(max_length=20, default="",verbose_name="Инвентарный номер", unique=True)
+    serial_number = models.CharField(max_length=20, default="",verbose_name="Серийный номер", unique=True)
     manufacturer = models.CharField(max_length=20, default="",verbose_name="Производитель") 
     owner = models.CharField(max_length=40, default="",verbose_name="Материально ответственный")
     computer_name = models.CharField(max_length=20, default="",verbose_name="Имя компьютера", blank=True)
