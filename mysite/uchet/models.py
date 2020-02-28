@@ -6,7 +6,6 @@ class Printer(models.Model):
     serial_number = models.CharField(max_length=20, default="",verbose_name="Серийный номер", unique=True)
     manufacturer = models.CharField(max_length=20, default="",verbose_name="Производитель") 
     owner = models.CharField(max_length=40, default="",verbose_name="Материально ответственный")
-    computer_name = models.CharField(max_length=20, default="",verbose_name="Имя компьютера", blank=True)
     last_service_date = models.DateTimeField(verbose_name="Дата последней проверки")
     comment = models.TextField(verbose_name="Комментарий", default="",blank=True)
     status = models.BooleanField(default=True, verbose_name="Исправность") 
